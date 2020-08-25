@@ -18,7 +18,7 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "name": "test-mypage-cm-configmap-9979123e",
+      "name": "test-mypage-cm3eba6298-configmap-948e51d1",
     },
   },
   Object {
@@ -54,7 +54,7 @@ Array [
               "volumeMounts": Array [
                 Object {
                   "mountPath": "/usr/share/nginx/html",
-                  "name": "configmap-test-mypage-cm-configmap-9979123e",
+                  "name": "configmap-test-mypage-cm3eba6298-configmap-948e51d1",
                 },
               ],
             },
@@ -62,9 +62,9 @@ Array [
           "volumes": Array [
             Object {
               "configMap": Object {
-                "name": "test-mypage-cm-configmap-9979123e",
+                "name": "test-mypage-cm3eba6298-configmap-948e51d1",
               },
-              "name": "configmap-test-mypage-cm-configmap-9979123e",
+              "name": "configmap-test-mypage-cm3eba6298-configmap-948e51d1",
             },
           ],
         },
@@ -137,7 +137,7 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "name": "test-mypage-cm-configmap-9979123e",
+      "name": "test-mypage-cm3eba6298-configmap-948e51d1",
     },
   },
   Object {
@@ -173,7 +173,7 @@ Array [
               "volumeMounts": Array [
                 Object {
                   "mountPath": "/usr/share/nginx/html",
-                  "name": "configmap-test-mypage-cm-configmap-9979123e",
+                  "name": "configmap-test-mypage-cm3eba6298-configmap-948e51d1",
                 },
               ],
             },
@@ -181,9 +181,9 @@ Array [
           "volumes": Array [
             Object {
               "configMap": Object {
-                "name": "test-mypage-cm-configmap-9979123e",
+                "name": "test-mypage-cm3eba6298-configmap-948e51d1",
               },
-              "name": "configmap-test-mypage-cm-configmap-9979123e",
+              "name": "configmap-test-mypage-cm3eba6298-configmap-948e51d1",
             },
           ],
         },
