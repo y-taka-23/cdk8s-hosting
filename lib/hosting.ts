@@ -1,6 +1,8 @@
 import { Construct } from 'constructs';
 import { ConfigMap, Container, Deployment, Volume } from 'cdk8s-plus';
 import { Ingress } from '../imports/k8s';
+import * as crypto from 'crypto';
+import * as fs from 'fs';
 import * as path from 'path';
 
 export interface HostingOptions {
@@ -17,7 +19,10 @@ export class Hosting extends Construct {
         publicDir = path.join(path.dirname(process.argv[1]), publicDir);
     }
 
-    const configMap = new ConfigMap(this, 'cm');
+    const hash = crypto.createHash('sha1');
+    hash.update(String(fs.statSync(publicDir).mtimeMs));
+    const configMapId = 'cm' + hash.digest('hex').slice(0, 8);
+    const configMap = new ConfigMap(this, configMapId);
     configMap.addDirectory(publicDir);
 
     const port = 80;
