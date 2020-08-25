@@ -1,3 +1,227 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`default options 1`] = `Array []`;
+exports[`with host option 1`] = `
+Array [
+  Object {
+    "apiVersion": "v1",
+    "data": Object {
+      "index.html": "<!DOCTYPE html>
+<html>
+  <head>
+    <title>cdk8s Demo</title>
+  </head>
+  <body>
+    <h1>Hello, CDK for Kubernetes!</h1>
+  </body>
+</html>
+",
+    },
+    "kind": "ConfigMap",
+    "metadata": Object {
+      "name": "test-mypage-cm-configmap-9979123e",
+    },
+  },
+  Object {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": Object {
+      "name": "test-mypage-deploy-pod-b0bcacb0",
+    },
+    "spec": Object {
+      "replicas": 1,
+      "selector": Object {
+        "matchLabels": Object {
+          "cdk8s.deployment": "testmypagedeployD20B4760",
+        },
+      },
+      "template": Object {
+        "metadata": Object {
+          "labels": Object {
+            "cdk8s.deployment": "testmypagedeployD20B4760",
+          },
+        },
+        "spec": Object {
+          "containers": Array [
+            Object {
+              "env": Array [],
+              "image": "nginx:1.19.2",
+              "name": "main",
+              "ports": Array [
+                Object {
+                  "containerPort": 80,
+                },
+              ],
+              "volumeMounts": Array [
+                Object {
+                  "mountPath": "/usr/share/nginx/html",
+                  "name": "configmap-test-mypage-cm-configmap-9979123e",
+                },
+              ],
+            },
+          ],
+          "volumes": Array [
+            Object {
+              "configMap": Object {
+                "name": "test-mypage-cm-configmap-9979123e",
+              },
+              "name": "configmap-test-mypage-cm-configmap-9979123e",
+            },
+          ],
+        },
+      },
+    },
+  },
+  Object {
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": Object {
+      "name": "test-mypage-deploy-service-pod-b0fcf028",
+    },
+    "spec": Object {
+      "externalIPs": Array [],
+      "ports": Array [
+        Object {
+          "port": 80,
+          "targetPort": 80,
+        },
+      ],
+      "selector": Object {
+        "cdk8s.deployment": "testmypagedeployD20B4760",
+      },
+      "type": "ClusterIP",
+    },
+  },
+  Object {
+    "apiVersion": "networking.k8s.io/v1beta1",
+    "kind": "Ingress",
+    "metadata": Object {
+      "name": "test-mypage-ing-5309310c",
+    },
+    "spec": Object {
+      "rules": Array [
+        Object {
+          "host": "www.example.com",
+          "http": Object {
+            "paths": Array [
+              Object {
+                "backend": Object {
+                  "serviceName": "test-mypage-deploy-service-pod-b0fcf028",
+                  "servicePort": 80,
+                },
+                "path": "/",
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+]
+`;
+
+exports[`with public option 1`] = `
+Array [
+  Object {
+    "apiVersion": "v1",
+    "data": Object {
+      "index.html": "<!DOCTYPE html>
+<html>
+  <head>
+    <title>cdk8s Demo</title>
+  </head>
+  <body>
+    <h1>Hello, CDK for Kubernetes!</h1>
+  </body>
+</html>
+",
+    },
+    "kind": "ConfigMap",
+    "metadata": Object {
+      "name": "test-mypage-cm-configmap-9979123e",
+    },
+  },
+  Object {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": Object {
+      "name": "test-mypage-deploy-pod-b0bcacb0",
+    },
+    "spec": Object {
+      "replicas": 1,
+      "selector": Object {
+        "matchLabels": Object {
+          "cdk8s.deployment": "testmypagedeployD20B4760",
+        },
+      },
+      "template": Object {
+        "metadata": Object {
+          "labels": Object {
+            "cdk8s.deployment": "testmypagedeployD20B4760",
+          },
+        },
+        "spec": Object {
+          "containers": Array [
+            Object {
+              "env": Array [],
+              "image": "nginx:1.19.2",
+              "name": "main",
+              "ports": Array [
+                Object {
+                  "containerPort": 80,
+                },
+              ],
+              "volumeMounts": Array [
+                Object {
+                  "mountPath": "/usr/share/nginx/html",
+                  "name": "configmap-test-mypage-cm-configmap-9979123e",
+                },
+              ],
+            },
+          ],
+          "volumes": Array [
+            Object {
+              "configMap": Object {
+                "name": "test-mypage-cm-configmap-9979123e",
+              },
+              "name": "configmap-test-mypage-cm-configmap-9979123e",
+            },
+          ],
+        },
+      },
+    },
+  },
+  Object {
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": Object {
+      "name": "test-mypage-deploy-service-pod-b0fcf028",
+    },
+    "spec": Object {
+      "externalIPs": Array [],
+      "ports": Array [
+        Object {
+          "port": 80,
+          "targetPort": 80,
+        },
+      ],
+      "selector": Object {
+        "cdk8s.deployment": "testmypagedeployD20B4760",
+      },
+      "type": "ClusterIP",
+    },
+  },
+  Object {
+    "apiVersion": "networking.k8s.io/v1beta1",
+    "kind": "Ingress",
+    "metadata": Object {
+      "name": "test-mypage-ing-5309310c",
+    },
+    "spec": Object {
+      "backend": Object {
+        "serviceName": "test-mypage-deploy-service-pod-b0fcf028",
+        "servicePort": 80,
+      },
+    },
+  },
+]
+`;

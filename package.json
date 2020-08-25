@@ -8,16 +8,18 @@
     "type": "git",
     "url": "https://github.com/y-taka-23/cdk8s-hosting.git"
   },
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "compile": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "build": "yarn compile && yarn test"
+    "build": "yarn compile && yarn test",
+    "example": "yarn compile && cdk8s synth -a \"node example/example.js\" -o example/dist"
   },
   "dependencies": {
     "cdk8s": "^0.27.0",
+    "cdk8s-plus": "^0.27.0",
     "constructs": "^2.0.2"
   },
   "devDependencies": {
